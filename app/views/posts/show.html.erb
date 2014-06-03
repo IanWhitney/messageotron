@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
-<p>Posted by <%= @post.user.email %></p>
-<p>on <%= @post.created_at %></p>
+<p>Posted by <%= @post.author %></p>
+<p>on <%= @post.posted_on %></p>
 <div>
   <%= @post.content %>
 </div>
