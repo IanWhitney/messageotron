@@ -1,0 +1,19 @@
+<% if @reply.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @reply.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<h1>Replying to <%= @reply.post.title %></h1>
+<%= form_for [@reply.post, @reply] do |f| %>
+    <div class='form-group'>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+    <%= f.submit "Post" %>
+  </form>
+<% end %>

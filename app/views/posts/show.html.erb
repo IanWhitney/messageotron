@@ -4,3 +4,9 @@
 <div>
   <%= @post.content %>
 </div>
+<%= link_to "New Reply", new_post_reply_path(@post), class: 'btn btn-primary btn-lg active' %>
+<hr />
+<h2>Replies</h2>
+<div>
+  <%= render @post.replies %>
+</div>

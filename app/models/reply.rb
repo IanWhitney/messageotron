@@ -1,7 +1,7 @@
-class Post < ActiveRecord::Base
+class Reply < ActiveRecord::Base
+  belongs_to :post
   belongs_to :user
-  has_many :replies
-  validates_presence_of :title, :content
+  validates_presence_of :content
 
   def author
     user.email
