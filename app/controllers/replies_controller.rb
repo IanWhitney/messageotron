@@ -1,15 +1,17 @@
 class RepliesController < ApplicationController
   def new
-    @reply = Post.find(params[:post_id]).replies.new
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.new
   end
 
   def create
-    @reply = Post.find(params[:post_id]).replies.create(reply_params)
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.new(reply_params)
     @reply.user = current_user
     if @reply.save
       redirect_to post_path(@reply.post)
     else
-      render :new
+      render 'posts/show'
     end
   end
 

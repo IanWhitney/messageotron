@@ -8,5 +8,8 @@
 <hr />
 <h2>Replies</h2>
 <div>
-  <%= render @post.replies %>
+  <%= render @post.replies.select {|r| r.persisted? } %>
 </div>
+<h1>New Reply</h1>
+<%= render 'replies/errors' %>
+<%= render 'replies/form' %>
